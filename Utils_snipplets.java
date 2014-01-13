@@ -35,9 +35,29 @@
 
 
 //*************************************************************************************
+	SharedPreffernces
+	
+	
+	private SharedPreferences settings;
+	private SharedPreferences.Editor editor;
+	
 
+	// putting values in sharedpreferences
+	settings=getSharedPreferences(SplashScreen.PREFF_NAME, MODE_PRIVATE);
+	editor=settings.edit();
+	editor.putString("islogged", "true");
+	editor.putString("username", ""+username.getText().toString().trim());
+	editor.putString("time", ""+Calendar.getInstance().getTimeInMillis());
+	editor.commit();
 
-
+	// retriving values from sharedpreferences
+	
+	settings = getSharedPreferences(PREFF_NAME, 0);
+	String isLogged = settings.getString("islogged", null);
+	
+	
+	
+	
 
 
 
