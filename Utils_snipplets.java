@@ -56,9 +56,24 @@
 	String isLogged = settings.getString("islogged", null);
 	
 	
-	
-	
-
-
-
 //*************************************************************************************
+
+	check internet connection
+	
+	public static boolean isOnline(Context context) {
+		ConnectivityManager cm = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo netInfo = cm.getActiveNetworkInfo();
+		if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+			return true;
+		} else {
+			Toast.makeText(context, "No Internet Connection",
+					Toast.LENGTH_SHORT).show();
+		}
+		return false;
+	}
+
+
+//**************************************************************************************
+
+
